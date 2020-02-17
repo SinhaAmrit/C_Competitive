@@ -1,0 +1,48 @@
+/**
+* @author : Amrit Sinha
+* Date : February 16,2020
+* GitHub : /SinhaAmrit
+* CodePen : /SinhaAmrit
+* Facebook : /codiizone
+* Instagram : /codiizone
+* website : https://codiizone.blogspot.com/
+* Guessing Game In C Language
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define Attempt 0
+
+int main()
+{
+    int INPUT, randomNumber;
+    time_t t;
+
+    srand((unsigned) time(&t));
+    randomNumber = rand() % 21;
+
+    for (int i = 5; i>Attempt; i--){
+    printf("\n%d tr%s left  = ", i, i == 1 ? "y" : "ies");
+    scanf("%d", &INPUT);
+    if (INPUT > 20 ){
+        printf("only enter between 0-20");
+        continue;
+    }
+
+    if (INPUT == randomNumber){
+        printf("\n\n Correct");
+        printf("\n You Win\n\n");
+        break;
+    }else if (INPUT > randomNumber){
+        printf("\nguess is more than value");
+    }else if (INPUT < randomNumber){
+        printf("\nguess is less than value");
+    }
+    }
+    if (INPUT != randomNumber){
+        printf("\n\n You Lose");
+        printf("\n Guess is %i\n\n", randomNumber);
+    }
+return 0;
+}
