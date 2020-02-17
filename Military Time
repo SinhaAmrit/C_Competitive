@@ -1,0 +1,108 @@
+/**
+* @author : Amrit Sinha
+* Date : February 16,2020
+* GitHub : /SinhaAmrit
+* CodePen : /SinhaAmrit
+* Facebook : /codiizone
+* Instagram : /codiizone
+* website : https://codiizone.blogspot.com/
+* Military Time
+ 
+You want to convert the time from a 12 hour clock to a 24 hour clock. If you are given the time on a 12 hour clock, you should output the time as it would appear on a 24 hour clock.   
+ 
+Task:   
+Determine if the time you are given is AM or PM, then convert that value to the way that it would appear on a 24 hour clock. 
+ 
+Input Format:  
+A string that includes the time, then a space and the indicator for AM or PM. 
+ 
+Output Format:  
+A string that includes the time in a 24 hour format (XX:XX) 
+ 
+Sample Input:  
+1:15 PM 
+
+Explanation: 
+1:00 PM on a 12 hour clock is equivalent to 13:00 on a 24 hour clock.
+*/
+
+//Solution 1:
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+int i=0,j,k;
+char str[8];
+gets(str);
+if((str[5]=='A'&&str[6]=='M') || (str[6]=='A' && str[7]=='M'))
+{
+if(str[2]==':')
+  {
+    j=(str[0]-48)*10+(str[1]-48);
+ if(j==12)
+  {
+  printf("00");
+  }
+  else
+   printf("%d",j);
+   for(k=2;k<=4;k++)
+   printf("%c",str[k]);
+  }
+  else
+  {
+  j=str[0]-48;
+
+   printf("0%d",j);
+   for(k=1;k<=3;k++)
+   printf("%c",str[k]);
+}
+}
+else if((str[5]=='P' && str[6]=='M' ) || (str[6]=='P' && str[7]=='M'))
+{ i=0;
+  if(str[2]==':')
+  {
+    j=(str[0]-48)*10+(str[1]-48);
+ if(j==12)
+  {
+  printf("00");
+  }
+  else
+   printf("%d",j+12);
+   for(k=2;k<=4;k++)
+   printf("%c",str[k]);
+  }
+  else
+  {
+  j=str[0]-48+12;
+
+   printf("%d",j);
+   for(k=1;k<=3;k++)
+   printf("%c",str[k]);
+}
+
+  
+}
+return 0;
+}
+
+
+
+
+
+
+//Solution 2:
+
+#include<stdio.h>
+#include<string.h>
+int main() {
+    int hh, mm ;
+    char t[3],l;
+    scanf("%d%c%d%s", &hh, &l, &mm, t) ;
+   
+    if (strcmp(t,"PM")==0 && hh!=12) hh += 12 ;
+    if (strcmp(t,"AM")==0 && hh==12) hh = 0 ;
+    
+    printf("%02d:%02d", hh, mm) ;
+    return 0;
+}
