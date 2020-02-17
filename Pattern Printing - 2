@@ -1,0 +1,44 @@
+/**
+* @author : Amrit Sinha
+* Date : February 16,2020
+* GitHub : /SinhaAmrit
+* CodePen : /SinhaAmrit
+* Facebook : /codiizone
+* Instagram : /codiizone
+* website : https://codiizone.blogspot.com/
+* Pattern Printing - 2, In C Language
+ 4444444
+ 4333334
+ 4322234
+ 4321234
+ 4322234
+ 4333334
+ 4444444*/
+#include <stdio.h>
+int main()
+{ int i,j;
+for (i=4;i>=1;i--) 
+{ 
+for (j=4;j>=i;j--)          
+ printf("%d",j);   
+for (j=1;j<(i*2)-1;j++)   
+ printf("%d",i);   
+for (j=i+1;j<=4;j++)   
+ printf("%d",j);   
+printf("\n");
+}
+
+//For first half
+  for (i=2;i<=4;i++) 
+{ 
+for (j=4;j>=i;j--)          
+ printf("%d",j);   
+for (j=1;j<(i*2)-1;j++)   
+ printf("%d",i);   
+for (j=i+1;j<=4;j++)   
+ printf("%d",j);   
+printf("\n");
+}
+//for second half
+    return 0;
+}
